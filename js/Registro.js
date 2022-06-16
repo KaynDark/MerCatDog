@@ -8,7 +8,7 @@ $(document).ready(function() {
                 },
         menssage: {
             email: {
-                email: "Debe tener sintaxis de email"
+                email: "¡¡ERROR!! Debe tener sintaxis de email!!!"
             }
         }
             }

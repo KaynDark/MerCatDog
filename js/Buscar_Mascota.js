@@ -7,7 +7,7 @@ $("#btn-buscar").click(function (event) {
       format: 'json',
     },
     error: function () {
-      $("#info").html("<p>Ha ocurrido un error!!!! Vuelva a intentarlo</p>");
+      $("#info").html("<p>Ha ocurrido un error!!!! Vuelva a intentarlo...</p>");
     },
     dataType: 'json',
     success: function (data) {
