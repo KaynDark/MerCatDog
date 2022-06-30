@@ -14,10 +14,24 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path,include
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth import views as auth_views
+from django.views.generic import TemplateView
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
+    path('api-token-auth/', obtain_auth_token, name='api_token_auth'), 
+
     path('admin/', admin.site.urls),
-    path('Registro_Mascota/', include('apps.Registro_Mascota.urls')),
-    path('Dueño_Mascota/', include('apps.Dueño_Mascota.urls')),
+
+    path('registro/', include('registroMascotas.urls')),
+
+    path('usuario/', include('Usuario.urls')),
+
+    # path('adopcion/', include('Adopcion.urls')),
+
+    path('login/', auth_views.LoginView.as_view(template_name='Usuario/login.html'), name='login'),
+    path('logout/', LogoutView.as_view(template_name='Usuario/logout.html'), name='logout'),
+    path('', TemplateView.as_view(template_name='MerCatDog.html'), name='MerCatDog'),
 ]

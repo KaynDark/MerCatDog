@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+<h1 class="display-3">Dueños</h1>
+<hr>
+<a class="btn" role="button" href="{% url 'dueño_form_form' %}">Agregar</a>
+<hr>
+
+{% if not object_list %}
+<h1>No hay registro de Dueños</h1>
+<br><br><br><br><br><br><br><br>
+{% else %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Rut</td>
+            <td>Nombre</td>
+            <td>Telefono</td>
+            <td>Email</td>
+            <td>Direccion</td>
+            <td>Rango</td>
+        </tr>
+    </thead>
+    <tbody>  
+        {% for dueno in object_list %}      
+        <tr>
+            <td>{{ dueno.rut }}</td>
+            <td>{{ dueno.nombre }}</td>
+            <td>{{ dueno.telefono }}</td>
+            <td>{{ dueno.direccion }}</td>
+            <td>{{ dueno.email }}</td>
+            <td>{{ dueno.rango_adopcion }}</td>
+            <td>
+                <a class="btn btn-primary" href="{% url 'docentes_update' docente.id%}">  Editar  </a>
+                <a class="btn btn-danger" href="{% url 'docentes_borrar' docente.id%}">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}                                
+    </tbody>
+</table>
+{% endif %}
+
+</div>
+
+{% endblock %}

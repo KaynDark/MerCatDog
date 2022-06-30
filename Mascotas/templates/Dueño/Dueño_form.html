@@ -1,12 +1,24 @@
-{% extends 'Dueño/Base.html' %} 
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Registro de Dueño{% endblock %}
 
 {% block content %}
-    <h1>Agregar Dueño</h1>
-    
-    <div class="content container">
-    <form method="POST">
-        {% csrf_token %} {{ form.as_p }}
-        <button type="submit">GRABAR</button>
+<div class="container mt-3 pb-3">
+    <div class="col-md-5">
+    <h1>Registrar Dueño</h1>
+    <form id="formulario" method="POST" enctype= "multipart/form-data" >{% csrf_token %}
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="form-group">
+            <label for="{{ field.name}}">{{ field.label_tag }}</label><br>            
+            {{ field }}
+            <div class="bg-danger mt-1">{{ field.errors }}</div>
+        </div>
+        {% endfor %}
+        
+        <input type="submit" value="Grabar" class="btn btn-success">
     </form>
-    </div>
+</div>
+</div>
 {% endblock %}
