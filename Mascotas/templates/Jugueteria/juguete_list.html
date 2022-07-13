@@ -1,0 +1,36 @@
+{% extends 'base.html' %} 
+
+{% block titulo_principal %}
+
+<div id=titulo_pagina>
+    Lista de Juguetes registrados
+</div>
+{% endblock %} 
+
+{% block content %} 
+    <h3>Lista de Juguetes</h3>
+
+{% if object_list %}
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>Marca</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for juguete in object_list %}
+        <tr>
+            <th scope="row">{{ juguete.nombre }} </th>
+            <td>${{ juguete.precio }} </td>
+            <td>{{ juguete.marca }} </td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% else %}
+    <h1>No hay registros de Juguetes</h1>
+{% endif %} {% endblock %}

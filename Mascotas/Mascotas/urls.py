@@ -31,6 +31,8 @@ urlpatterns = [
 
     # path('adopcion/', include('Adopcion.urls')),
 
+    path('Jugueteria/', include('Jugueteria.urls')),
+
     path('login/', auth_views.LoginView.as_view(template_name='Usuario/login.html'), name='login'),
     path('logout/', LogoutView.as_view(template_name='Usuario/logout.html'), name='logout'),
     path('', TemplateView.as_view(template_name='MerCatDog.html'), name='MerCatDog'),

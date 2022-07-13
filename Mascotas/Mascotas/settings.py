@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'Adopcion',
     'rest_framework',
     'rest_framework.authtoken',
+    'Jugueteria',
 ]
 
 MIDDLEWARE = [

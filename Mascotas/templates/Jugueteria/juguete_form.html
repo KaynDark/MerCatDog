@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+
+{% block titulo_principal %} CRUD: Insert {% endblock %}
+
+{% block content %}
+    <h1>Agregar producto</h1>
+    
+    <div class="content container">
+    <form method="POST">
+        {{ form.as_table }} 
+        {% csrf_token %} 
+        <button type="submit">GRABAR</button>
+    </form>
+    </div>
+
+{% endblock %}
